@@ -97,7 +97,19 @@ def draw_L(window, circle, r, c):
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
     original_x = circle.center.x
+    original_y = circle.center.y
+    radius = circle.radius
+    x = original_x
+    y = original_y
 
+    for k in range(r):
+        for j in range(k):
+            circle = rg.Circle(rg.Point(x, y), radius)
+            circle.attach_to(window)
+            window.render()
+            x = x + (2 * radius)
+        y = y + (2 * radius)
+        x = original_x
 
 
 
@@ -140,6 +152,18 @@ def draw_wall_on_right(rectangle, n, window):
     # TODO: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
+    original_x = rectangle.get_center().x
+    original_y = rectangle.get_center().y
+    x = original_x
+    y = original_y
+
+    for k in range(n):
+        for j in range(k):
+            rectangle = rg.Rectangle(rectangle.corner_1, rectangle.corner_2)
+            rectangle.attach_to(window)
+            window.render()
+            x = x + original_x
+        y = y + original_y
 
 
 # ----------------------------------------------------------------------
